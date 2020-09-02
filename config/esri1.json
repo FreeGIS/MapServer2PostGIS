@@ -1,0 +1,10 @@
+{
+    "source":"http://cumulus.tnc.org/arcgis/rest/services/CN_PAtool/PAtool/MapServer",
+    "target":{
+        "host":"192.168.34.68",
+        "port":5432,
+        "user":"postgres",
+        "password":"123456",
+        "database":"nature"
+    }
+}
