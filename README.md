@@ -1,0 +1,2 @@
+# MapServer2PostGIS
+该库可将arcgis mapserver上发布的矢量服务，获取矢量数据存储到postgis库
