@@ -213,12 +213,14 @@ function getDate2pg(url,sql_header,layer){
             }catch(err1){
                 console.log(url);
                 resolve(err1);
+                return;
             } 
             let sql=sql_header;
             if(!dataSet.features){
                // console.log('features null',dataSet);
                 console.log('features null',url);
                 resolve('null');
+                return;
             }
             //数据转换
             for(let j=0;j<dataSet.features.length;j++){
