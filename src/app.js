@@ -214,14 +214,14 @@ function getDate2pg(url,sql_header,layer){
             }catch(err1){
                 console.log(url);
                 resolve(err1);
-                //return;
+                return;
             } 
             let sql=sql_header;
             if(!dataSet||!dataSet.features){
                // console.log('features null',dataSet);
                 console.log('features null',url);
                 resolve('null');
-                //return;
+                return;
             }
             //数据转换
             for(let j=0;j<dataSet.features.length;j++){
@@ -311,7 +311,7 @@ async function features2Postgis(layer){
     }
     if(promises.length>0){
         await Promise.all(promises);
-        promises=[];
+        //promises=[];
     }
     console.log(tablename+'入库完毕！');
     
