@@ -198,13 +198,14 @@ function getDate2pg(url,sql_header,layer){
         const userAgent=getRandomUserAgent();
         superagent.get(url).responseType('json')
         .set(userAgent).timeout({
-            response: 30000,  
-            deadline: 60000, 
+            response: 6000000,  
+            deadline: 6000000, 
         }).retry(3)
         .end(function(err,res){
             if(err){
                 console.log(url);
                 resolve(err);
+               // return;
             }
             const datas=res.body.toString();
             let dataSet;
@@ -213,12 +214,14 @@ function getDate2pg(url,sql_header,layer){
             }catch(err1){
                 console.log(url);
                 resolve(err1);
+                //return;
             } 
             let sql=sql_header;
-            if(!dataSet.features){
+            if(!dataSet||!dataSet.features){
                // console.log('features null',dataSet);
                 console.log('features null',url);
                 resolve('null');
+                //return;
             }
             //数据转换
             for(let j=0;j<dataSet.features.length;j++){
